@@ -1,0 +1,8 @@
+#Rodar container postgre
+sudo docker run --name librarydb -p 5432:5432 -e  POSTGRES_PASWORD=postgres -e POSTGRES_USER=postgres -e POSTGRES_DB=library --network library-network  postgres
+
+#Rodar pg admin 4
+sudo docker run --name pgadmin4 -p 15432:80 -e PGADMIN_DEFAULT_EMAIL=admin@admin.com -e PGADMIN_DEFAULT_PASSWORD=admin --network library-network dpage/pgadmin4
+
+#Criar uma network
+docker network create library-network
